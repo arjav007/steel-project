@@ -1,0 +1,355 @@
+Build a full 4-page marketing website for Hi Tech Engineerings, a specialist industrial engineering contractor based in Maharashtra, India. The company specialises in SS & MS pipeline fabrication, structural steel fabrication and erection, MS & SS tank fabrication (20 KL–1,500 KL), heavy equipment erection, and skilled labour supply. Clients include Bisleri, PepsiCo, Coca-Cola, Cipla, Tata Chemicals, and 30+ other industry leaders.
+
+TYPOGRAPHY — CRITICAL
+Display / Heading font: "Fraunces" — a slow, optical serif with distinctive warmth and personality. Use at 700–900 weight for all H1, H2, H3 headings and stat numbers. Use at 400–500 weight for nav logo, eyebrows, and labels. Fraunces has a beautiful "wonky" optical character that looks refined and handcrafted at large display sizes — entirely unlike typical industrial web fonts.
+Body font: "DM Sans" — clean, refined, 300–400 weight for paragraphs, labels, captions, and form fields.
+DO NOT use Syne, Inter, Roboto, Space Grotesk, Poppins, or any rounded sans-serif. This is non-negotiable.
+Note on Fraunces: it is a mixed-case serif — do NOT force all-caps on headings. Let the natural sentence case and mixed case work. The elegance comes from the weight contrast and optical character of the letterforms, not from capitalisation. At 700–900 weight, Fraunces headlines should feel editorial and assured, not loud.
+
+COLOUR PALETTE
+--ink:       #0C0D10   (near-black background, primary)
+--ink-2:     #141519   (slightly lighter dark, alternate sections)
+--ink-3:     #1C1E24   (cards, nav bg)
+--rust:      #C8430F   (primary accent — call-to-actions, highlights, lines)
+--rust-2:    #E04E16   (hover state for rust)
+--amber:     #D4890A   (secondary accent — used sparingly on select labels/tags)
+--steel:     #7D8FA0   (muted text, labels, secondary copy)
+--silver:    #B2C2CE   (lighter body text)
+--chalk:     #ECEDF2   (main readable text on dark)
+--white:     #F8F9FC   (headlines, max contrast text)
+--line:      rgba(255,255,255,0.07)   (dividers, card borders)
+--line-2:    rgba(255,255,255,0.13)   (hover borders, emphasized dividers)
+
+OVERALL AESTHETIC & FEEL
+Industrial Brutalism meets Precision Engineering. Think:
+
+The visual language of technical engineering drawings — ruled lines, measurement ticks, exposed grid
+Large Fraunces headlines that break across lines dramatically (e.g. "BUILT / TO LAST." on two lines)
+Rust-orange accent used as a blade — thin lines, small tags, icon fills, CTA buttons, left-border accents on cards
+No rounded corners anywhere — square edges, 2px or 0px radius only
+Image placeholders styled like architectural blueprint areas: diagonal crosshatch fill, dashed orange border inset, small label text in the centre saying what the photo should be
+Ticker/marquee band in rust between hero and first section
+Subtle radial glow behind hero headline (rust, 10% opacity, large radius)
+Very slight noise texture overlay on hero (CSS or Figma equivalent)
+
+
+GLOBAL NAV (fixed, 68px tall)
+
+Left: Logo text "Hi Tech Engineerings" in Fraunces 19px, 700 weight, normal tracking, white — preceded by a 28px rust horizontal rule line
+Right: Nav links in DM Sans 13px, 500 weight, letter-spacing +80, steel colour, rust on hover/active (nav links use DM Sans, not Fraunces — too decorative at small nav sizes)
+
+Home | About | Services | Get a Quote (last item is a rust-filled square button, white text)
+
+
+Background: #0C0D10 at 92% opacity, backdrop blur 16px
+Bottom border: 1px solid rgba(255,255,255,0.07)
+
+
+PAGE 1 — HOME
+Section 1: Hero (full viewport height)
+
+Full-bleed background: image placeholder (crosshatch, label: "Hero — Industrial welding or fabrication site wide shot")
+Dark overlay gradient: ink 95% at bottom → ink 60% mid → ink 20% top
+Thin 1px rust vertical line on right edge running full height
+Content bottom-left aligned, padding 80px bottom and 4vw left
+
+Eyebrow: Small rust line (48px × 1px) + "SPECIALIST INDUSTRIAL CONTRACTOR · EST. 2020" in DM Sans 10px, rust-2 colour, tracked +300
+H1 headline (Fraunces, 120–148px, tracked -20, white):
+Line 1: "Built to Last."
+Line 2: "Engineered Right." — this line in rust
+Below headline — two columns side by side:
+Left: body paragraph in DM Sans 15px, silver, 420px max-width:
+"From precision SS & MS pipeline systems to large-scale structural fabrication and heavy equipment erection — delivered on time, within budget, and to the most demanding safety standards."
+Right: Two CTA buttons stacked or side-by-side:
+
+Primary: "REQUEST A QUOTE →" — rust fill, white Fraunces 12px text, 16px × 32px padding, 0 border-radius
+Secondary: "OUR SERVICES" — transparent, 1px white/20% border, chalk Fraunces 12px text
+
+Stats bar (full width, above bottom edge of hero, separated by 1px line at top):
+5 stats separated by 1px vertical lines:
+
+"5+" / "YEARS OF EXCELLENCE"
+"30+" / "MARQUEE CLIENTS"
+"₹10CR" / "ANNUAL TURNOVER"
+"150+" / "SKILLED PROFESSIONALS"
+"3" / "COUNTRIES SERVED"
+Stat number: Fraunces 44px, white. Label: DM Sans 11px, steel, tracked +150.
+
+
+Section 2: Scrolling Ticker (full-width band)
+Rust (#C8430F) background. Infinite scroll left.
+Items in Fraunces 13px, white, tracked +200, separated by "//" in 40% white:
+SS & MS PIPELINE FABRICATION // STRUCTURAL STEEL ERECTION // TANK FABRICATION 20KL–1500KL // HEAVY EQUIPMENT ERECTION // LABOUR SUPPLY & MANPOWER // PLANT COMMISSIONING // OSHA-COMPLIANT SAFETY //
+(repeat same items twice for seamless loop)
+
+Section 3: Company Introduction (100px top/bottom, 4vw horizontal)
+Two columns (1fr 1fr, 80px gap):
+LEFT: Image placeholder (crosshatch, 4:3 ratio, label: "About / Engineers on site photo"). Below the image frame, a rust square border offset 20px bottom-right for visual depth.
+RIGHT:
+
+Eyebrow: rust line + "WHO WE ARE" in DM Sans 10px rust
+H2 (Fraunces 52px, white, tracked -10): "PRECISION ENGINEERING. NO COMPROMISES."
+Body (DM Sans 15px, 300 weight, silver, 1.9 line-height, two paragraphs)
+Ghost CTA button: "READ OUR STORY →"
+
+
+Section 4: Services Grid (dark alt section, #141519 bg)
+
+Eyebrow + H2: "What We // Build" — "Build" in rust
+Body: "Specialist services across the full industrial project lifecycle."
+3-column grid of service cards (1px line grid, no gaps — borders form the grid). 6 cards total.
+
+Each card (ink bg, hover → ink-3):
+
+Image placeholder (16:9, crosshatch, labelled)
+Service tag (Fraunces 10px, rust, tracked +200)
+Title (Fraunces 22px, white)
+Description (DM Sans 13px, steel, 3–4 lines)
+"VIEW SERVICE →" text link in rust
+
+6th card is a CTA card: rust solid background, centre-aligned.
+
+"HAVE A PROJECT?" — Fraunces 13px, white/70%
+"LET'S TALK ABOUT IT." — Fraunces 34px, white
+Ghost button: "GET A QUOTE →" (white border/text)
+
+Card titles:
+
+SS & MS PROCESS PIPING
+STRUCTURAL FABRICATION & ERECTION
+MS & SS TANK FABRICATION
+HEAVY EQUIPMENT ERECTION
+LABOUR SUPPLY & MANPOWER
+[CTA card]
+
+
+Section 5: Why Choose Us (ink bg)
+Eyebrow + H2: "The Difference Is // Discipline" — "Discipline" in rust
+6 items stacked vertically, each row separated by 1px horizontal line:
+Two-column layout per row: left = large muted number (Fraunces 72px, white 5% opacity); right = title + body.
+Items:
+01 — QUALIFIED ENGINEERING CORE / Our team combines certified engineers with highly skilled field operatives. Every project has technical ownership from planning to handover.
+02 — ON-TIME, ON-BUDGET DELIVERY / We plan rigorously and execute with discipline. Dedicated project teams are accountable for timelines and cost targets.
+03 — OSHA-COMPLIANT SAFETY CULTURE / Daily job hazard analysis, trained personnel, and a proprietary safety programme that rewards safe behaviour.
+04 — CROSS-INDUSTRY PROVEN TRACK RECORD / From pharmaceutical-grade piping to 1,500 KL tank fabrication for refineries — across India, Nepal, and Bhutan.
+05 — SINGLE-SOURCE PROJECT PARTNER / Fabrication, erection, commissioning, manpower — we cover the full lifecycle.
+06 — EXPERT CONSULTANT NETWORK / Backed by specialist freelance consultants for niche technical requirements.
+
+Section 6: Project Portfolio (alt dark section)
+Eyebrow + H2: "Numbers That // Speak" — "Speak" in rust
+Horizontal scrollable row of project cards (overflow-x: auto, scrollbar hidden):
+Each card: 300px wide, image placeholder (3:2) on top, then card body:
+
+Client name (Fraunces 10px, rust, tracked +250)
+Scope (DM Sans 15px, 500 weight, white)
+Big metric (Fraunces 34px, white) + unit (DM Sans 11px, steel)
+Top border on metric: 1px rust
+
+7 project cards:
+
+SPECTRUM ETHERS LTD / SS & MS Piping / 50,000+ / Inch Metres Executed
+MANGALAM ORGANICS LTD / Structural Fabrication & Erection / 4,700+ / Tonnes of Structural Steel
+MANGALAM ORGANICS LTD / SS & CS Piping / 48,000+ / Inch Metres Executed
+FRIGORIFICO ALLANA PVT LTD / 400 TPD Full Plant — Structural, Piping & Erection / FULL PLANT / Turnkey Delivery
+SIPA INDIA + MANGALAM ORGANICS / Equipment Erection Combined / 449 / Tonnes Equipment Erected
+BISLERI INTERNATIONAL PVT LTD / SS & MS Piping / 26,000+ / Inch Metres Executed
+YETI BREWERY PVT LTD, NEPAL / 350 BPM Filler, Piping & Structure / 350 BPM / High-Speed Filler Installed
+
+
+Section 7: Safety Band (rust background, two columns)
+Left:
+
+Eyebrow (white/60%, small)
+H2 (Fraunces 64px, 800 weight, white): "Every Job. Every Day. Zero Shortcuts."
+Body (DM Sans 15px, white/75%)
+
+Right: 5 safety pillars, each with number + title + 1-line description, separated by 1px white/15% lines.
+01 DAILY HAZARD ANALYSIS / 02 TRAINED WORKFORCE / 03 OSHA COMPLIANCE / 04 SAFETY INCENTIVES / 05 ENVIRONMENTAL RESPONSIBILITY
+
+Section 8: Clients (alt dark section)
+H2: "Trusted By // Industry Leaders" — "Industry Leaders" in rust
+4 rows, each with a category label (DM Sans 10px, steel, tracked +200, with full-width 1px line extending right) and a flex-wrap row of client name chips (1px line border, DM Sans 13px, silver, square pill):
+BEVERAGE: Parle International · PepsiCo India · Coca-Cola Southwest · Bisleri International · Repute Engineers · Railneer · Life Food & Beverage (Nepal) · Ice Beverage (Bhutan)
+CHEMICAL: Mangalam Organics · Privi Organics · Spectrum Ethers · Silicone International Products · CavinKare India · Birla Carbon · Royal Carbon Black · Aditya Birla Cement
+DAIRY, SNACKS & BAKERY: Prabhat Dairy (Mother Dairy) · Mahananda Dairy · Shree Krishna Milk Dairy · PepsiCo Kurkure · Priya Gold · Tiffany Foods · Dairy Classic
+PHARMA, REFINERY & BREWERY: Cipla Ltd · Tata Chemicals · Frigorifico Allana · Ghodawat Foods · United Breweries · SABMiller India · Yeti Brewery (Nepal)
+
+Section 9: Full-Width CTA
+Centred text, radial glow behind in rust at 12% opacity:
+H2 (Fraunces 80px, 800 weight): "Ready to Build // Something Lasting?" — "Something Lasting?" in rust
+Body: "Share your project requirements and our team will respond within 24 hours."
+Rust CTA button: "REQUEST A QUOTE →" (large, 16px × 40px padding)
+
+PAGE 2 — ABOUT US
+Hero
+
+Eyebrow: "ABOUT HI TECH ENGINEERINGS"
+H2 (Fraunces 80px, 800 weight, two lines, white + rust split):
+"We Never Dreamed About Success."
+"We Worked For It." — in rust
+Below: two-column grid (manifesto left, facts table right)
+
+Left — Manifesto block (Fraunces 26px, white, 1.4 line-height):
+"A disciplined, purpose-built engineering company with the people, processes, and track record to deliver your most demanding projects — reliably, safely, and without excuses."
+Key words "purpose-built" and "most demanding projects" in rust.
+Right — Facts table:
+Label–value rows separated by 1px lines. Labels in DM Sans 12px, steel, tracked. Values in Fraunces 17px, white.
+Year Established: 2020
+Legal Status: Proprietorship
+Annual Turnover: ₹ 8 – 10 Crore
+Total Employees: 100 – 150 Personnel
+Geographies: India · Nepal · Bhutan
+GST No.: 27CPNPM3508P3Z5 (monospace)
+IEC Code: CPNPM3508P (monospace)
+
+Story Section
+Two columns: left narrow label ("OUR STORY" vertical text or small heading, rust), right wide body text.
+5 body paragraphs (DM Sans 16px, 300 weight, silver):
+
+Founded in 2020 on a belief that industrial projects deserve better planning, execution, and accountability.
+Full-spectrum services — SS/MS piping for pharma, structural steel for chemical plants, tank fabrication for refineries.
+100–150 engineers and tradespeople with freelance specialist consultant network.
+Grown to ₹8–10 Crore turnover, trusted by Bisleri, PepsiCo, Cipla, Tata Chemicals, Aditya Birla, with international projects in Nepal and Bhutan.
+Agility of a specialist contractor + systems of a professional engineering firm. Quality is non-negotiable.
+
+Industry tags (square chips, 1px line border, Fraunces 11px, silver): BEVERAGE · CHEMICAL · PHARMACEUTICAL · DAIRY & FOOD · REFINERY · BREWERY
+Wide image placeholder below (16:9, label: "Company / Site wide aerial or facility photo")
+
+Safety Band (same as homepage)
+
+CTA: "Let's Build // Together." → "Get in Touch →"
+
+PAGE 3 — SERVICES
+Hero
+
+H2: "Industrial Solutions Built For // Demanding Projects"
+Body: "From process piping to structural steel to full plant commissioning — every stage, covered."
+
+
+5 Service Rows (alternating ink / ink-2 backgrounds)
+Each row: 3 columns — [small number col 60px] [left text col] [right image + feature list col]
+Number: Fraunces 56px, white at 5% opacity
+Left text:
+
+Service tag (small rust label)
+H3: Fraunces 38px, white
+2 paragraphs of DM Sans 15px body
+Right:
+Image placeholder (4:3, crosshatch, labelled)
+Feature list: 2-column grid of DM Sans 13px items, each preceded by a 10px rust line "—"
+
+Service 1: SS & MS PROCESS PIPING FABRICATION
+Body: Piping team handles the full range of SS and MS pipeline systems — hygienic dairy and beverage piping to high-pressure chemical, alloy steel and heavy-wall lines. Orbital welding capability. 50,000+ inch metres executed.
+Features: SS & CS Process Piping · Alloy Steel & Heavy Wall · Dairy & Hygienic Piping · Jacket Piping · SS Schedule Piping · SS Mitre Bends · Utility Piping · Orbital Welding
+Service 2: STRUCTURAL STEEL FABRICATION & ERECTION
+Body: Industrial steel frameworks, equipment platforms, pipe racks, plant structures. 4,700+ tonnes proven at a single site. Full shutdown and commissioning capability.
+Features: Industrial Plant Structures · Equipment Platforms · Pipe Rack Structures · Mezzanine Floors · Structural Shutdown Jobs · MS & SS Systems
+Service 3: MS & SS TANK FABRICATION
+Body: Custom mild steel and stainless steel storage tanks from 20 KL to 1,500 KL. Built to spec for chemical, food-grade, and water storage. Dimensional precision, full documentation.
+Features: MS Tanks 20–1,500 KL · SS Process Tanks · Chemical Storage Vessels · Food-Grade SS Tanks · Vertical & Horizontal · Custom Configurations
+Service 4: HEAVY EQUIPMENT ERECTION & INSTALLATION
+Body: Precise lifting, shifting, and installation of heavy industrial equipment — pressure vessels, reactors, brewery fillers, processing machinery. 449+ tonnes delivered. International installations in Nepal.
+Features: Equipment Lifting & Rigging · Pressure Vessel Installation · Filler Machine Erection · Hydraulic Jacking · Borescopic Testing · Plant Commissioning
+Service 5: SKILLED LABOUR SUPPLY & MANPOWER
+Body: Trained, safety-compliant industrial workforce for project-based or ongoing maintenance requirements. All personnel screened, trained, and experienced — ready from day one.
+Features: Certified TIG/MIG Welders · Piping Fitters · Structural Fitters · Riggers & Erectors · Maintenance Technicians · Supervisory Personnel
+
+Tools & Tackles Section (alt bg)
+H2: "Tools, Tackles & // Equipment"
+Body: "Fully equipped with industry-grade tools — no outsourcing, no delays."
+Two-column list layout:
+Left column header: "EQUIPMENT LIFTING & SHIFTING" (Fraunces 18px, white)
+Items (DM Sans 13px, silver, each with rust "—" prefix):
+15-Ton Capacity Pharana · Chain Blocks (1–10 Ton) · Hook Chook · Hydraulic Jacks / Bottle Jacks · Skating Rollers · Hand Pallet Trolley
+Right column header: "FABRICATION & WELDING"
+Items: Inverter Welding Machines · Rectifier Welding Machines · Orbital Welding Setup · Plasma Cutting Machines · 2-Ton Hydraulic Jacks · Rolling Machine · Borescopic Testing Set (up to 3m)
+
+CTA: "Looking For a Specialist // Contractor?" → "Request a Quote →"
+
+PAGE 4 — CONTACT
+Hero
+
+H2: "Let's Talk About // Your Next Project"
+Body: "Whether you need a detailed project quote, a manpower arrangement, or just want to explore possibilities — our team responds within 24 hours."
+
+
+Contact Layout: Two Columns
+Left column (contact info, narrower):
+H3: "CONTACT INFORMATION" (Fraunces 24px)
+4 contact detail rows, each with:
+
+Square 40×40 icon box (1px line border, emoji or outline icon)
+Label (DM Sans 9px, steel, tracked +200, uppercase)
+Value (DM Sans 15px, chalk)
+
+Details:
+📍 OFFICE → Maharashtra, India
+📞 PHONE / WHATSAPP → [Your number here]
+✉ EMAIL → [Your email here]
+⏱ RESPONSE TIME → Within 24 hours
+Registration block (below, separated by 1px line):
+Section label: "REGISTRATION DETAILS" (Fraunces 11px, steel, tracked)
+Rows: GST Number / 27CPNPM3508P3Z5 · IEC Code / CPNPM3508P · Legal Status / Proprietorship · Established / 2020
+Small sector tags row: BEVERAGE · CHEMICAL · PHARMA · DAIRY · REFINERY · BREWERY
+Right column (quote form, wider, ink-2 bg, no border-radius):
+H3: "REQUEST A QUOTE" (Fraunces 30px)
+Subtext: "Fill in your project details and we'll respond with a tailored proposal." (DM Sans 14px, steel)
+Form fields — underline-only style (no box border, only 1px bottom line in white/15%, rust on focus):
+Row 1: [Your Name *] [Company Name]
+Row 2: [Phone / WhatsApp *] [Email Address]
+Full width: [Service Required *] — dropdown with options:
+SS & MS Process Piping Fabrication / Structural Steel Fabrication & Erection / MS & SS Tank Fabrication / Heavy Equipment Erection / Labour Supply / Manpower / Multiple Services / Full Project / Other / Not Sure Yet
+Row 3: [Project Location] [Approx. Timeline]
+Full width: [Project Details — multiline textarea]
+Submit button: Full-width, rust fill. Label: DM Sans 13px, 600 weight, "Send Enquiry →", tracked +150
+
+FOOTER (all pages)
+Four-column layout:
+Col 1 (wider): Logo + 2-line description (DM Sans 13px, steel)
+Col 2: SERVICES links → Process Piping / Structural Fabrication / Tank Fabrication / Heavy Erection / Labour Supply
+Col 3: COMPANY links → About Us / Safety / Projects / Clients
+Col 4: CONTACT links → Request a Quote / Enquiries
+Bottom bar: © 2025 Hi Tech Engineerings · GST: 27CPNPM3508P3Z5 · IEC: CPNPM3508P | right-aligned: "We never dreamed about success. We worked for it."
+DM Sans 12px, steel, 1px top border.
+
+IMAGE PLACEHOLDERS (all pages)
+Wherever a photograph is needed, render a placeholder with:
+
+Dark background (#141519)
+Diagonal crosshatch pattern (45° lines, white at 2.5% opacity, 24px repeat)
+Inset dashed border (1px, rust at 30% opacity, inset 16px)
+Centred label text: DM Sans 10px, rust at 60%, tracked +200, uppercase — describing what the photo should be
+
+Placeholder locations:
+
+Hero background — "HERO — INDUSTRIAL WELDING OR FABRICATION SITE"
+About section split image — "ABOUT / ENGINEERS ON SITE"
+Company story wide image — "COMPANY / SITE AERIAL OR FACILITY"
+Each service card (homepage) — labelled per service
+Each service row (services page) — labelled per service
+Each project card scroll — "PROJECT SITE PHOTO"
+
+
+ANIMATIONS / INTERACTIONS (if Figma Make supports)
+
+Scroll-triggered fade-up on all section blocks (opacity 0 → 1, translateY 24px → 0, 0.6s ease)
+Ticker marquee infinite scroll animation
+Nav link underline slide-in on hover
+Service card background colour shift on hover (ink → ink-3)
+CTA button: translateY(-2px) on hover
+Custom cursor: small rust dot (10px) + trailing ring (36px, 1px rust border, 0.15s lag)
+
+
+FINAL NOTES FOR FIGMA MAKE
+
+All section widths: max 1440px, centred, 4vw horizontal padding
+Section vertical padding: 100px top and bottom
+All borders: 1px solid rgba(255,255,255,0.07) standard, rgba(255,255,255,0.13) on hover
+0px border-radius everywhere — no rounded corners
+Fraunces (700–900 weight) for all H1, H2, H3 headlines and large stat numbers
+Fraunces (400–500 weight) for logo, small display labels, and pull quotes
+DM Sans 300 for body paragraphs, 400 for labels/captions, 500–600 for buttons and form labels
+CTA button text uses DM Sans 600, NOT Fraunces — cleaner at small sizes
+The contrast between Fraunces's warm optical serif character and DM Sans's clean geometry is the typographic engine of the site — let it breathe
+The site should feel like it was designed by a high-end European industrial studio that also does luxury branding — precision and restraint, but with real craft and warmth. Not a startup. Not a boring corporate site. Not a generic engineering template.
+Fraunces at 800–900 weight on a near-black background, set large, is the hero of every section. Give headlines room to live.
