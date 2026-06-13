@@ -256,7 +256,13 @@ export function About() {
               <div>
                 <div className="text-[10px] tracking-[0.25em] mb-3" style={{ fontFamily: 'var(--font-dm-sans)', color: 'var(--rust)' }}>TRUSTED BY</div>
                 <div className="text-[13px] md:text-[14px] leading-relaxed mb-3" style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, color: 'var(--silver)' }}>
-                  <span className="text-[var(--white)]">Bisleri, PepsiCo, Cipla, Tata, Aditya Birla</span> & more
+                  <span className="text-[var(--white)]">Bisleri, PepsiCo, Cipla, Tata, Aditya Birla</span>{' '}
+                  <Link 
+                    to="/projects" 
+                    className="text-[var(--silver)] hover:text-[var(--rust)] hover:underline cursor-pointer transition-colors duration-200"
+                  >
+                    &amp; more
+                  </Link>
                 </div>
                 <div className="text-[9px] opacity-60" style={{ fontFamily: 'var(--font-dm-sans)', color: 'var(--steel)' }}>Fortune 500 companies</div>
               </div>

@@ -146,8 +146,8 @@ export function Services() {
       para1: "Our piping team handles the full range of SS, MS and jacketed pipeline systems — from hygienic dairy and beverage piping to high-pressure chemical lines. Orbital welding capability for pharmaceutical companies, food grade piping and all process piping fabrications.",
       para2: "Turnkey projects executed across beverage, pharmaceutical, and chemical facilities. Every weld documented, every material certified, every pressure test witnessed.",
       images: [
-        { src: processPipingImg, tag: "Process Piping" },
-        { src: processPipingImg2, tag: "SS Piping Installation" }
+        { src: processPipingImg, tag: "cs Piping" },
+        { src: processPipingImg2, tag: "Jacket piping" }
       ],
       features: [
         "MS, SS & CS Process Piping",
