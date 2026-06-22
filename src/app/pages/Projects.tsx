@@ -9,7 +9,7 @@ import lifeFoodImg from "@/imports/Life_Food___Beverage_Pvt_Ltd__Nepal_-1.jpg";
 import frigorificoImg from "@/imports/Frigorifico_Allana_Pvt_Ltd-1.jpg";
 import sipaIndiaImg from "@/imports/Sipa_India-1.jpg";
 import bisleri2Img from "@/imports/BisleriSS.jpg";
-import bisleri1Img from "@/imports/BisleriEE.jpg";
+import bisleri1Img from "@/imports/bisleri-new.jpg";
 import mangalamEEImg from "@/imports/Mangalam.jpg";
 import mangalamMSImg from "@/imports/MangalamMS-3.jpg";
 import mangalamSFImg from "@/imports/MangalamSF-3.jpg";
@@ -19,7 +19,7 @@ import structuralSteelImg from "@/imports/STRUCTURAL_STEEL_FABRICATION___ERECTIO
 import processPipingImg from "@/imports/MS__SS___CS_PROCESS_PIPING_FABRICATION-1.jpg";
 import reputeEngineeringsImg from "@/imports/Repute_Engineerings-1.jpg";
 import spectrumImg from "@/imports/Spectrum-1.jpg";
-import raviDyewareImg from "@/imports/RaviDyeware-1.jpg";
+import raviDyewareImg from "@/imports/ravi.jpg";
 import priviSpecialityImg from "@/imports/PriviSpeciality-1.jpg";
 import pepsicoLogo from "@/imports/Frame2-1/0d3328b2f8456d5c6d7e12880ddc7fc0b8a815ac.png";
 import priviLogo from "@/imports/Frame13/74f1491ec71c61204b016d091651cb04528a985c.png";
@@ -66,35 +66,18 @@ const projects = [
     id: 4,
     client: "Mangalam Organics Ltd",
     category: "Chemical",
-    scope: "Structural Fabrication & Erection",
-    capacity: "4700 Ton & above",
+    scope: "Structural Fabrication & Erection,CS & SS Piping,Equipment Erection",
+    capacity: "Full Turnkey Solution",
     icon: Factory,
     image: structuralSteelImg
   },
-  {
-    id: 5,
-    client: "Mangalam Organics Ltd",
-    category: "Chemical",
-    scope: "CS & SS Piping",
-    capacity: "48000 In.mtr & above",
-    icon: Factory,
-    image: processPipingImg
-  },
-  {
-    id: 6,
-    client: "Mangalam Organics Ltd",
-    category: "Chemical",
-    scope: "Equipment Erection",
-    capacity: "680 Ton",
-    icon: Factory,
-    image: mangalamEEImg
-  },
+  
   {
     id: 7,
-    client: "Bisleri International Pvt Ltd",
+    client: "Sure and Pure Agro Packaging Ltd.",
     category: "Beverage",
     scope: "SS & MS Piping",
-    capacity: "26000 In.mtr & above",
+    capacity: "Full Turnkey Solution",
     icon: Droplet,
     image: bisleri2Img
   },
