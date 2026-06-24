@@ -10,11 +10,6 @@ import frigorificoImg from "@/imports/Frigorifico_Allana_Pvt_Ltd-1.jpg";
 import sipaIndiaImg from "@/imports/Sipa_India-1.jpg";
 import puresurelogo from "@/imports/pure-sure.jpg";
 import bisleri1Img from "@/imports/bisleri-new.jpg";
-import mangalamEEImg from "@/imports/Mangalam.jpg";
-import mangalamMSImg from "@/imports/MangalamMS-3.jpg";
-import mangalamSFImg from "@/imports/MangalamSF-3.jpg";
-import mangalamSF1Img from "@/imports/MangalamSF-3.jpg";
-import mangalamMS1Img from "@/imports/MangalamMS-3.jpg";
 import structuralSteelImg from "@/imports/STRUCTURAL_STEEL_FABRICATION___ERECTION-1.jpg";
 import processPipingImg from "@/imports/MS__SS___CS_PROCESS_PIPING_FABRICATION-1.jpg";
 import reputeEngineeringsImg from "@/imports/Repute_Engineerings-1.jpg";
@@ -24,6 +19,7 @@ import priviSpecialityImg from "@/imports/PriviSpeciality-1.jpg";
 import pepsicoLogo from "@/imports/Frame2-1/0d3328b2f8456d5c6d7e12880ddc7fc0b8a815ac.png";
 import priviLogo from "@/imports/Frame13/74f1491ec71c61204b016d091651cb04528a985c.png";
 import Surelogo from "@/imports/Sure-logo.jpg";
+import Bislerilogo from "@/imports/Frame3/bisleri-logo.png";
 import yetiBreweryLogo from "@/imports/Frame4-1/67f69dfa0b8d4a4adf9796ced9cd8565a19b0441.png";
 import spectrumLogo from "@/imports/Frame5/60690990eb18738c9d36b8e989bd4edde4aa9cc9.png";
 import reputeLogo from "@/imports/Frame6/ac17534b7d89606bd9802b81066a3ac60812dafa.png";
@@ -71,9 +67,8 @@ const projects = [
     icon: Factory,
     image: structuralSteelImg
   },
-  
   {
-    id: 7,
+    id: 5,
     client: "Sure and Pure Agro Packaging Ltd.",
     category: "Beverage",
     scope: "SS & MS Piping",
@@ -82,7 +77,7 @@ const projects = [
     image: puresurelogo
   },
   {
-    id: 8,
+    id: 6,
     client: "Bisleri International Pvt Ltd",
     category: "Beverage",
     scope: "Equipment Erection",
@@ -91,7 +86,7 @@ const projects = [
     image: bisleri1Img
   },
   {
-    id: 9,
+    id: 7,
     client: "Sipa India Pvt Ltd",
     category: "Beverage",
     scope: "Equipment Erection",
@@ -100,7 +95,7 @@ const projects = [
     image: sipaIndiaImg
   },
   {
-    id: 10,
+    id: 8,
     client: "Frigorifico Allana Pvt Ltd",
     category: "Refinery Oil",
     scope: "Structure, Pipeline & Equipment Erection",
@@ -109,7 +104,7 @@ const projects = [
     image: frigorificoImg
   },
   {
-    id: 11,
+    id: 9,
     client: "Life Food & Beverage Pvt Ltd (Nepal)",
     category: "Beverage",
     scope: "Hot & Cold Fill Filler Installation with Process and Utility Piping and Structure",
@@ -118,7 +113,7 @@ const projects = [
     image: lifeFoodImg
   },
   {
-    id: 12,
+    id: 10,
     client: "Yeti Brewery Pvt Ltd (Nepal)",
     category: "Brewery",
     scope: "Full Turnkey Project, Structure Pipeline and Heavy Equipments Erection",
@@ -127,7 +122,7 @@ const projects = [
     image: yetiBreweryImg
   },
   {
-    id: 13,
+    id: 11,
     client: "Ice Beverages Pvt Ltd (Bhutan)",
     category: "Beverage",
     scope: "Full Turnkey Project, Structure Pipeline and Heavy Equipments Erection",
@@ -136,7 +131,7 @@ const projects = [
     image: iceBeveragesImg
   },
   {
-    id: 14,
+    id: 12,
     client: "Ravi Dyeware Company Pvt Ltd",
     category: "Chemical",
     scope: "Turnkey Solution - 460 MT Structure, 250 MT Equipment Erection, 9000 In.mtr+ Piping",
@@ -145,7 +140,7 @@ const projects = [
     image: raviDyewareImg
   },
   {
-    id: 15,
+    id: 13,
     client: "Privi Speciality Chemicals Ltd",
     category: "Chemical",
     scope: "Turnkey Solution - 200 Ton Structure, 120 Ton Equipment Erection, 13000 In.mtr+ Piping",
@@ -250,87 +245,93 @@ export function Projects() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)] via-transparent to-transparent opacity-80 z-0"></div>
                     <div className={`absolute inset-0 bg-[var(--rust)] transition-opacity duration-700 z-10 ${hoveredProject === project.id ? 'opacity-10' : 'opacity-0'}`}></div>
 
-                    {/* Logo Overlay - PepsiCo */}
+                    {/* Logo Overlay - PepsiCo (ID: 1) */}
                     {project.id === 1 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={pepsicoLogo} alt="PepsiCo Logo" className="w-48 md:w-56 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
-                    {/* Logo Overlay - Spectrum */}
+                    {/* Logo Overlay - Spectrum (ID: 2) */}
                     {project.id === 2 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={spectrumLogo} alt="Spectrum Logo" className="w-52 md:w-60 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
-                    {/* Logo Overlay - Repute Engineerings */}
+                    {/* Logo Overlay - Repute Engineerings (ID: 3) */}
                     {project.id === 3 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={reputeLogo} alt="Repute Engineerings Logo" className="w-40 md:w-48 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
-                    {/* Logo Overlay - Mangalam Organics */}
-                    {(project.id === 4 || project.id === 5 || project.id === 6) && (
+                    {/* Logo Overlay - Mangalam Organics (ID: 4) */}
+                    {project.id === 4 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={mangalamLogo} alt="Mangalam Organics Logo" className="w-52 md:w-60 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
-                    {/* Logo Overlay - Sipa India */}
-                    {project.id === 9 && (
+                    {/* Logo Overlay - Sure and Pure Agro (ID: 5) */}
+                    {project.id === 5 && (
+                      <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                        <img src={Surelogo} alt="Sure and pure Logo" className="w-48 md:w-56 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                      </div>
+                    )}
+                    {/* Logo Overlay - Bisleri (ID: 6) */}
+                    {project.id === 6 && (
+                      <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                        <img src={Bislerilogo} alt="Sure and pure Logo" className="w-48 md:w-56 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                      </div>
+                    )}
+
+                    {/* Logo Overlay - Sipa India (ID: 7) */}
+                    {project.id === 7 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={sipaLogo} alt="Sipa India Logo" className="w-44 md:w-52 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
-                    {/* Logo Overlay - Frigorifico Allana */}
-                    {project.id === 10 && (
+                    {/* Logo Overlay - Frigorifico Allana (ID: 8) */}
+                    {project.id === 8 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={frigorificoLogo} alt="Frigorifico Allana Logo" className="w-36 md:w-44 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
-                    {/* Logo Overlay - Life Food & Beverage */}
-                    {project.id === 11 && (
+                    {/* Logo Overlay - Life Food & Beverage (ID: 9) */}
+                    {project.id === 9 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={lifeFoodLogo} alt="Life Food & Beverage Logo" className="w-36 md:w-44 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
-                    {/* Logo Overlay - Ice Beverages */}
-                    {project.id === 13 && (
+                    {/* Logo Overlay - Yeti Brewery (ID: 10) */}
+                    {project.id === 10 && (
+                      <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                        <img src={yetiBreweryLogo} alt="Yeti Brewery Logo" className="w-40 md:w-48 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                      </div>
+                    )}
+
+                    {/* Logo Overlay - Ice Beverages (ID: 11) */}
+                    {project.id === 11 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={iceBeveragesLogo} alt="Ice Beverages Logo" className="w-32 md:w-40 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
-                    {/* Logo Overlay - Ravi Dyeware */}
-                    {project.id === 14 && (
+                    {/* Logo Overlay - Ravi Dyeware (ID: 12) */}
+                    {project.id === 12 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={raviDyewareLogo} alt="Ravi Dyeware Logo" className="w-40 md:w-48 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
-                    {/* Logo Overlay - Privi Speciality Chemicals */}
-                    {project.id === 15 && (
+                    {/* Logo Overlay - Privi Speciality Chemicals (ID: 13) */}
+                    {project.id === 13 && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         <img src={priviLogo} alt="Privi Speciality Chemicals Logo" className="w-52 md:w-60 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                      </div>
-                    )}
-
-                    {/* Logo Overlay - Sure and Pure Agro */}
-                    {(project.id === 7 || project.id === 8) && (
-                      <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                        <img src={Surelogo} alt="Sure and pure Logo" className="w-48 md:w-56 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                      </div>
-                    )}
-
-                    {/* Logo Overlay - Yeti Brewery */}
-                    {project.id === 12 && (
-                      <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                        <img src={yetiBreweryLogo} alt="Yeti Brewery Logo" className="w-40 md:w-48 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
