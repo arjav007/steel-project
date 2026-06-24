@@ -68,7 +68,7 @@ export function Home() {
       {/* Hero Section */}
       <section className="relative h-[875px] md:min-h-screen overflow-hidden">
         <div className="absolute h-full md:h-[70vh] left-0 top-0 w-full overflow-hidden">
-          <img src={homePageImg} alt="Industrial crane erection at golden hour" loading="lazy" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center 75%' }} />
+        <img src={homePageImg} alt="Industrial crane erection at golden hour" fetchpriority="high" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center 75%' }} />
           <div className="absolute inset-0 bg-gradient-to-t from-[rgba(12,13,16,0.4)] via-[rgba(5,6,7,0.3)] via-25% via-[rgba(2,2,2,0.2)] via-50% via-[rgba(0,0,0,0.1)] via-75% to-transparent"></div>
         </div>
 
