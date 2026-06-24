@@ -8,7 +8,7 @@ import yetiBreweryImg from "@/imports/YetiBrewery-1.jpg";
 import lifeFoodImg from "@/imports/Life_Food___Beverage_Pvt_Ltd__Nepal_-1.jpg";
 import frigorificoImg from "@/imports/Frigorifico_Allana_Pvt_Ltd-1.jpg";
 import sipaIndiaImg from "@/imports/Sipa_India-1.jpg";
-import bisleri2Img from "@/imports/BisleriSS.jpg";
+import puresurelogo from "@/imports/pure-sure.jpg";
 import bisleri1Img from "@/imports/bisleri-new.jpg";
 import mangalamEEImg from "@/imports/Mangalam.jpg";
 import mangalamMSImg from "@/imports/MangalamMS-3.jpg";
@@ -23,7 +23,7 @@ import raviDyewareImg from "@/imports/ravi.jpg";
 import priviSpecialityImg from "@/imports/PriviSpeciality-1.jpg";
 import pepsicoLogo from "@/imports/Frame2-1/0d3328b2f8456d5c6d7e12880ddc7fc0b8a815ac.png";
 import priviLogo from "@/imports/Frame13/74f1491ec71c61204b016d091651cb04528a985c.png";
-import bisleriLogo from "@/imports/Frame3/c2653df13b6785316a1819a883cf35fdda368cd4.png";
+import Surelogo from "@/imports/Sure-logo.jpg";
 import yetiBreweryLogo from "@/imports/Frame4-1/67f69dfa0b8d4a4adf9796ced9cd8565a19b0441.png";
 import spectrumLogo from "@/imports/Frame5/60690990eb18738c9d36b8e989bd4edde4aa9cc9.png";
 import reputeLogo from "@/imports/Frame6/ac17534b7d89606bd9802b81066a3ac60812dafa.png";
@@ -79,7 +79,7 @@ const projects = [
     scope: "SS & MS Piping",
     capacity: "Full Turnkey Solution",
     icon: Droplet,
-    image: bisleri2Img
+    image: puresurelogo
   },
   {
     id: 8,
@@ -320,10 +320,10 @@ export function Projects() {
                       </div>
                     )}
 
-                    {/* Logo Overlay - Bisleri */}
+                    {/* Logo Overlay - Sure and Pure Agro */}
                     {(project.id === 7 || project.id === 8) && (
                       <div className={`absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-500 z-20 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                        <img src={bisleriLogo} alt="Bisleri Logo" className="w-48 md:w-56 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                        <img src={Surelogo} alt="Sure and pure Logo" className="w-48 md:w-56 h-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                       </div>
                     )}
 
