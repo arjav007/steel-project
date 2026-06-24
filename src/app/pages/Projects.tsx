@@ -18,7 +18,7 @@ import raviDyewareImg from "@/imports/ravi.jpg";
 import priviSpecialityImg from "@/imports/PriviSpeciality-1.jpg";
 import pepsicoLogo from "@/imports/Frame2-1/0d3328b2f8456d5c6d7e12880ddc7fc0b8a815ac.png";
 import priviLogo from "@/imports/Frame13/74f1491ec71c61204b016d091651cb04528a985c.png";
-import Surelogo from "@/imports/Sure-logo.jpg";
+import Surelogo from "@/imports/sure-pure-logo.png";
 import Bislerilogo from "@/imports/Frame3/bisleri-logo.png";
 import yetiBreweryLogo from "@/imports/Frame4-1/67f69dfa0b8d4a4adf9796ced9cd8565a19b0441.png";
 import spectrumLogo from "@/imports/Frame5/60690990eb18738c9d36b8e989bd4edde4aa9cc9.png";
