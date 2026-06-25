@@ -373,7 +373,7 @@ export function Home() {
             {[
               {
                 client: "Spectrum Ethers Ltd",
-                category: "Beverage",
+                category: "Chemical & Fertilizer",
                 scope: "SS & MS Piping",
                 capacity: "50000 Inch Mtr & above",
                 icon: Droplet,
