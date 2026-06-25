@@ -14,6 +14,7 @@ export function Contact() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Added loading state
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [phoneError, setPhoneError] = useState("");
 
@@ -41,15 +42,57 @@ export function Contact() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validatePhone(formData.phone)) {
       return;
     }
 
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    // Find the readable label for the selected service
+    const selectedServiceLabel = services.find(s => s.value === formData.service)?.label || "Not specified";
+
+    // Prepare data for Web3Forms
+    const payload = {
+      access_key: "3d19bd2d-ce04-4fe5-820f-f9dd56ade25f",
+      subject: `New Project Enquiry from ${formData.name} - Hi-Tech Engineering`,
+      from_name: "Hi-Tech Engineering Website",
+      name: formData.name,
+      company: formData.company,
+      phone: formData.phone,
+      email: formData.email,
+      service: selectedServiceLabel, // Sending the readable label
+      location: formData.location,
+      timeline: formData.timeline,
+      details: formData.details
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        console.error("Form submission failed:", result);
+        alert("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -220,143 +263,144 @@ export function Contact() {
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your Name *"
-                    className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
-                    style={{ fontFamily: 'var(--font-dm-sans)' }}
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Company Name"
-                    className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
-                    style={{ fontFamily: 'var(--font-dm-sans)' }}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                <div className="form-group">
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handlePhoneChange}
-                    required
-                    placeholder="+91 9876543210 *"
-                    className={`w-full bg-transparent border-0 border-b pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors ${phoneError ? 'border-red-500' : 'border-[rgba(255,255,255,0.15)]'}`}
-                    style={{ fontFamily: 'var(--font-dm-sans)' }}
-                  />
-                  {phoneError && (
-                    <div className="text-[11px] text-red-400 mt-1" style={{ fontFamily: 'var(--font-dm-sans)' }}>
-                      {phoneError}
-                    </div>
-                  )}
-                </div>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email Address"
-                    className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
-                    style={{ fontFamily: 'var(--font-dm-sans)' }}
-                  />
-                </div>
-              </div>
-
-              <div className="form-group relative">
-                <button
-                  type="button"
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-left focus:border-[var(--rust)] focus:outline-none transition-colors flex items-center justify-between"
-                  style={{ fontFamily: 'var(--font-dm-sans)', color: formData.service ? 'var(--chalk)' : 'var(--steel)' }}
-                >
-                  <span>{formData.service ? services.find(s => s.value === formData.service)?.label : "Service Required *"}</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} style={{ color: 'var(--rust)' }} />
-                </button>
-
-                {dropdownOpen && (
-                  <div className="absolute z-10 w-full mt-1 bg-[var(--ink-3)] border border-[var(--line)] max-h-64 overflow-y-auto">
-                    {services.map((service) => (
-                      <button
-                        key={service.value}
-                        type="button"
-                        onClick={() => handleServiceSelect(service.value)}
-                        disabled={!service.value}
-                        className={`w-full text-left px-4 py-3 text-[13px] md:text-[14px] transition-colors ${
-                          service.value === formData.service
-                            ? 'bg-[var(--rust)] text-[var(--white)]'
-                            : service.value
-                              ? 'hover:bg-[var(--ink-2)] text-[var(--silver)]'
-                              : 'text-[var(--steel)] cursor-default'
-                        }`}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        placeholder="Your Name *"
+                        className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
                         style={{ fontFamily: 'var(--font-dm-sans)' }}
-                      >
-                        {service.label}
-                      </button>
-                    ))}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        placeholder="Company Name"
+                        className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
+                        style={{ fontFamily: 'var(--font-dm-sans)' }}
+                      />
+                    </div>
                   </div>
-                )}
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleChange}
-                    placeholder="Project Location"
-                    className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
-                    style={{ fontFamily: 'var(--font-dm-sans)' }}
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="timeline"
-                    value={formData.timeline}
-                    onChange={handleChange}
-                    placeholder="Approx. Timeline (weeks)"
-                    className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
-                    style={{ fontFamily: 'var(--font-dm-sans)' }}
-                  />
-                </div>
-              </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <div className="form-group">
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handlePhoneChange}
+                        required
+                        placeholder="+91 9876543210 *"
+                        className={`w-full bg-transparent border-0 border-b pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors ${phoneError ? 'border-red-500' : 'border-[rgba(255,255,255,0.15)]'}`}
+                        style={{ fontFamily: 'var(--font-dm-sans)' }}
+                      />
+                      {phoneError && (
+                        <div className="text-[11px] text-red-400 mt-1" style={{ fontFamily: 'var(--font-dm-sans)' }}>
+                          {phoneError}
+                        </div>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Email Address"
+                        className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
+                        style={{ fontFamily: 'var(--font-dm-sans)' }}
+                      />
+                    </div>
+                  </div>
 
-              <div className="form-group">
-                <textarea
-                  name="details"
-                  value={formData.details}
-                  onChange={handleChange}
-                  placeholder="Project Details"
-                  rows={5}
-                  className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-3 text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors resize-none"
-                  style={{ fontFamily: 'var(--font-dm-sans)' }}
-                />
-              </div>
+                  <div className="form-group relative">
+                    <button
+                      type="button"
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-left focus:border-[var(--rust)] focus:outline-none transition-colors flex items-center justify-between"
+                      style={{ fontFamily: 'var(--font-dm-sans)', color: formData.service ? 'var(--chalk)' : 'var(--steel)' }}
+                    >
+                      <span>{formData.service ? services.find(s => s.value === formData.service)?.label : "Service Required *"}</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} style={{ color: 'var(--rust)' }} />
+                    </button>
 
-              <button
-                type="submit"
-                className="w-full bg-[var(--rust)] text-[var(--white)] py-3 md:py-4 text-[12px] md:text-[13px] tracking-[0.15em] transition-all hover:bg-[var(--rust-2)] hover:-translate-y-[2px]"
-                style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 600 }}
-              >
-                SEND ENQUIRY →
-              </button>
-            </form>
+                    {dropdownOpen && (
+                      <div className="absolute z-10 w-full mt-1 bg-[var(--ink-3)] border border-[var(--line)] max-h-64 overflow-y-auto">
+                        {services.map((service) => (
+                          <button
+                            key={service.value}
+                            type="button"
+                            onClick={() => handleServiceSelect(service.value)}
+                            disabled={!service.value}
+                            className={`w-full text-left px-4 py-3 text-[13px] md:text-[14px] transition-colors ${
+                              service.value === formData.service
+                                ? 'bg-[var(--rust)] text-[var(--white)]'
+                                : service.value
+                                  ? 'hover:bg-[var(--ink-2)] text-[var(--silver)]'
+                                  : 'text-[var(--steel)] cursor-default'
+                            }`}
+                            style={{ fontFamily: 'var(--font-dm-sans)' }}
+                          >
+                            {service.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="location"
+                        value={formData.location}
+                        onChange={handleChange}
+                        placeholder="Project Location"
+                        className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
+                        style={{ fontFamily: 'var(--font-dm-sans)' }}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="timeline"
+                        value={formData.timeline}
+                        onChange={handleChange}
+                        placeholder="Approx. Timeline (weeks)"
+                        className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-2 md:pb-3 text-[14px] md:text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors"
+                        style={{ fontFamily: 'var(--font-dm-sans)' }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <textarea
+                      name="details"
+                      value={formData.details}
+                      onChange={handleChange}
+                      placeholder="Project Details"
+                      rows={5}
+                      className="w-full bg-transparent border-0 border-b border-[rgba(255,255,255,0.15)] pb-3 text-[15px] text-[var(--chalk)] placeholder-[var(--steel)] focus:border-[var(--rust)] focus:outline-none transition-colors resize-none"
+                      style={{ fontFamily: 'var(--font-dm-sans)' }}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full bg-[var(--rust)] text-[var(--white)] py-3 md:py-4 text-[12px] md:text-[13px] tracking-[0.15em] transition-all hover:bg-[var(--rust-2)] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-[2px]'}`}
+                    style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 600 }}
+                  >
+                    {isSubmitting ? "SENDING..." : "SEND ENQUIRY →"}
+                  </button>
+                </form>
               </>
             )}
           </div>
